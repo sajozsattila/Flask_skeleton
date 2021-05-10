@@ -20,6 +20,7 @@ COPY app ./app
 COPY waitress_server.sh ./
 RUN chmod +x waitress_server.sh
 COPY config.py ./config.py
+RUN mkdir /home/zen/logs && chown zen /home/zen/logs && chgrp zen /home/zen/logs
 
 # start the application
 CMD su zen -c "/home/zen/waitress_server.sh" -
